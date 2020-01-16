@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		
+	</head>
+    <body style="margin:20px; background: #57737A;">
+		{% if height %}
+			<table class="table table-dark">
+				<tr>
+					<td>Block hash</td>
+					<td>{{hash}}</td>
+				</tr>
+				<tr>
+					<td>Confirmations</td>
+					<td>{{confirmations}}</td>
+				</tr>
+				<tr>
+					<td>Time mined</td>
+					<td>{{time}}</td>
+				</tr>
+				<tr>
+					<td>Height</td>
+					<td>{{height}}</td>
+				</tr>
+				<tr>
+					<td>Previous block hash</td>
+					
+					<td>
+						<a href="/bhash/{{previous_hash}}/">{{previous_hash}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td>Difficulty</td>
+					<td>{{difficulty}}</td>
+				</tr>
+				<tr>
+					<td>Merkle root</td>
+					<td>{{merkle_root}}</td>
+				</tr>
+				<tr>
+					<td>Total weight</td>
+					<td>{{total_weight}}</td>
+				</tr>
+				<tr>
+					<td>Nonce</td>
+					<td>{{nonce}}</td>
+				</tr>
+				<tr>
+					<td>Total transactions</td>
+					<td>{{total_transactions}}</td>
+				</tr>
+				<tr>
+					<td>Total transacted</td>
+					<td>{{total_transacted}}</td>
+				</tr>
+				<tr>
+					<td>Total fee</td>
+					<td>{{total_fee}}</td>
+				</tr>
+			</table>
+		{% else %}
+			<p>Block does not exist</p>
+		{% endif %}
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		{% load static %}
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{% static 'BExplorer/styles.css' %}">
+	</head>
+    <body style="margin:20px; background: #57737A;">
+		<p>Blockchain Explorer</p>
+		<p>Latest blocks</p>
+
+
+		<form id="msgform" action="/explorer/">\
+			<input type="text" value="11" id="input"> 
+			<button id="searchBlock" class="send_message">
+				Send
+			</button>
+		</form>
+		{% if latest_blocks %}
+
+			<table class="table table-dark">
+				<tr>
+					<th scope="col">
+						Height
+					</th>
+					<th scope="col">
+						Hash
+					</th>
+					<th scope="col">
+						Mined
+					</th>
+					<th scope="col">
+						Reward
+					</th>
+				</tr>
+			{% for block in latest_blocks %}
+				<tr>
+				{% for feature in block %}
+					{% if feature == block.0 %}
+						<td>
+							<a href="/explorer/{{block.0}}/">{{feature}}</a>
+						</td>
+					{% else %}
+						<td>
+							{{feature}}
+						</td>
+					{% endif %}
+				{% endfor %}
+				</tr>
+			{% endfor %}
+		</table>
+		{% else %}
+			<p>No blocks are available.</p>
+		{% endif %}
+		
+	</body>
+</html>
